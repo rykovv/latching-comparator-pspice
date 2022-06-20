@@ -1,0 +1,121 @@
+* source COMPARATOR_LATCHING
+M_M1         VD1 VBP VDDA VDDA P  
++ L={l0}  
++ W={w0}          
++ M={m1}
+V_Vdda         VDDA 0 {vdda}
+V_Vssa         VSSA 0 {vssa}
+M_M2         VD2 VBP VDDA VDDA P  
++ L={l0}  
++ W={w0}          
++ M={m1}
+M_M10         D CLK1B B VSSA N  
++ L={l9}  
++ W={w9}          
++ M={m9}
+M_M9         C CLK1B A VSSA N  
++ L={l9}  
++ W={w9}          
++ M={m9}
+M_M8         B A VSSA VSSA N  
++ L={l7}  
++ W={w7}          
++ M={m7}
+M_M7         A B VSSA VSSA N  
++ L={l7}  
++ W={w7}          
++ M={m7}
+M_M17         Q D VDDA VDDA P  
++ L={l16}  
++ W={w16}          
++ M={m16}
+M_M19         VD19 QB VSSA VSSA N  
++ L={l18}  
++ W={w18}          
++ M={m18}
+M_M18         Q D VD19 VSSA N  
++ L={l18}  
++ W={w18}          
++ M={m18}
+V_Vip         VIP VICM DC {vi1/2} AC 0
++PULSE {vi1/2} {vi2/2} {tdi} {tr} {tr} {2*pw} {2*per}
+M_M14         D CLK1B VDDA VDDA P  
++ L={l13}  
++ W={w13}          
++ M={m13}
+M_M13         C CLK1B VDDA VDDA P  
++ L={l13}  
++ W={w13}          
++ M={m13}
+M_M11         C D VDDA VDDA P  
++ L={l11}  
++ W={w11}          
++ M={m11}
+M_M12         D C VDDA VDDA P  
++ L={l11}  
++ W={w11}          
++ M={m11}
+M_M15b         A CLK1A B VSSA N  
++ L={l15}  
++ W={w15}          
++ M={m15}
+M_M15a         B CLK1A A VSSA N  
++ L={l15}  
++ W={w15}          
++ M={m15}
+M_M3         B VIP VD1 VDDA P  
++ L={l3}  
++ W={w3}          
++ M={m3}
+M_M4         A VREFP VD1 VDDA P  
++ L={l3}  
++ W={w3}          
++ M={m3}
+M_M5         B VREFN VD2 VDDA P  
++ L={l3}  
++ W={w3}          
++ M={m3}
+M_M6         A VIN VD2 VDDA P  
++ L={l3}  
++ W={w3}          
++ M={m3}
+M_M0         VBP VBP VDDA VDDA P  
++ L={l0}  
++ W={w0}          
++ M={m0}
+I_Ibias         VBP VSSA DC {ibias}  
+V_Vin         VIN VICM DC {-vi1/2} AC 0
++PULSE {-vi1/2} {-vi2/2} {tdi} {tr} {tr} {2*pw} {2*per}
+V_Vrefp         VREFP VICM {vref/2}
+V_Vrefn         VREFN VICM {-vref/2}
+V_Vicm         VICM VSSA {vicm}
+V_Clk1a         CLK1A VSSA DC {vdda} AC 0
++PULSE {vdda} {vssa} {td1} {tr} {tr} {pw} {per}
+V_Clk1b         CLK1B VSSA DC {vssa} AC 0
++PULSE {vssa} {vdda} {td2} {tr} {tr} {pw} {per}
+M_M16         Q QB VDDA VDDA P  
++ L={l16}  
++ W={w16}          
++ M={m16}
+M_M22         QB C VD23 VSSA N  
++ L={l18}  
++ W={w18}          
++ M={m18}
+M_M21         QB C VDDA VDDA P  
++ L={l16}  
++ W={w16}          
++ M={m16}
+M_M23         VD23 Q VSSA VSSA N  
++ L={l18}  
++ W={w18}          
++ M={m18}
+M_M20         QB Q VDDA VDDA P  
++ L={l16}  
++ W={w16}          
++ M={m16}
+.PARAM  w11=0.9u l3=0.18u w3=0.9u m9=2 vicm=400mv per=10ns vi1=-0.4v l18=0.18u
++  w16=0.36u vref=200mv l7=0.18u m7=28 w15=0.9u m18=1 vssa=0.0 w7=0.18u td2=
++ {0.5*per} ibias=200u l9=0.18u td1={(0.5*per) - 5p} m15=1 m3=2 w9=0.9u m0=2
++  tr=100ps vdda=1.6 m1=4 w18=0.36u m16=1 l11=0.18u m11=2 l13=0.18u tdi=
++ {0.75*per} pw={per/2 - tr} m13=2 l15=0.18u w0=3.6u w13=0.9u l16=0.18u
++  vi2=201.8mv l0=1.8u

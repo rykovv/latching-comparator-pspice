@@ -1,0 +1,22 @@
+** Profile: "SCHEMATIC1-testac"  [ \\gaia.ecs.csus.edu\pheedley\PSpice\examples\eee230\OPAMPs\opamp_folded_cascodeN_wideswing_DM_v2\opamp_folded_cascoden_wideswing-pspicefiles\schematic1\testac.sim ] 
+
+** Creating circuit file "testac.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../opamp_folded_cascoden_wideswing-pspicefiles/opamp_folded_cascoden_wideswing.lib" 
+* From [PSPICE NETLIST] section of t:\Cadence\SPB_16.3\tools\PSpice\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.AC DEC 10 1k 1g
+.OP
+.OPTIONS NUMDGT= 5
+.OPTIONS RELTOL= 0.0001
+.PROBE V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+.END

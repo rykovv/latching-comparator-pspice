@@ -1,0 +1,651 @@
+
+**** 03/14/22 00:58:51 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-testtran"  [ D:\OneDrive\OneDrive - Asian Answers\Documentos\CSUS\EEE232\Projects\Project 1\comparator_latch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "testtran.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../comparator_latching-pspicefiles/comparator_latching.lib" 
+* From [PSPICE NETLIST] section of D:\Users\Vladmachine\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.4.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN/OP  0 50ns 0 50ps 
+.OPTIONS ADVCONV
+.OPTIONS ITL4= 100
+.OPTIONS RELTOL= 0.0001
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source COMPARATOR_LATCHING
+M_M1         VD1 VBP VDDA VDDA P  
++ L={l0}  
++ W={w0}          
++ M={m1}
+V_Vdda         VDDA 0 {vdda}
+V_Vssa         VSSA 0 {vssa}
+M_M2         VD2 VBP VDDA VDDA P  
++ L={l0}  
++ W={w0}          
++ M={m1}
+M_M10         D CLK1B B VSSA N  
++ L={l9}  
++ W={w9}          
++ M={m9}
+M_M9         C CLK1B A VSSA N  
++ L={l9}  
++ W={w9}          
++ M={m9}
+M_M8         B A VSSA VSSA N  
++ L={l7}  
++ W={w7}          
++ M={m7}
+M_M7         A B VSSA VSSA N  
++ L={l7}  
++ W={w7}          
++ M={m7}
+M_M17         Q D VDDA VDDA P  
++ L={l16}  
++ W={w16}          
++ M={m16}
+M_M19         VD19 QB VSSA VSSA N  
++ L={l18}  
++ W={w18}          
++ M={m18}
+M_M18         Q D VD19 VSSA N  
++ L={l18}  
++ W={w18}          
++ M={m18}
+V_Vip         VIP VICM DC {vi1/2} AC 0
++PULSE {vi1/2} {vi2/2} {tdi} {tr} {tr} {2*pw} {2*per}
+M_M14         D CLK1B VDDA VDDA P  
++ L={l13}  
++ W={w13}          
++ M={m13}
+M_M13         C CLK1B VDDA VDDA P  
++ L={l13}  
++ W={w13}          
++ M={m13}
+M_M11         C D VDDA VDDA P  
++ L={l11}  
++ W={w11}          
++ M={m11}
+M_M12         D C VDDA VDDA P  
++ L={l11}  
++ W={w11}          
++ M={m11}
+M_M15b         A CLK1A B VSSA N  
++ L={l15}  
++ W={w15}          
++ M={m15}
+M_M15a         B CLK1A A VSSA N  
++ L={l15}  
++ W={w15}          
++ M={m15}
+M_M3         B VIP VD1 VDDA P  
++ L={l3}  
++ W={w3}          
++ M={m3}
+M_M4         A VREFP VD1 VDDA P  
++ L={l3}  
++ W={w3}          
++ M={m3}
+M_M5         B VREFN VD2 VDDA P  
++ L={l3}  
++ W={w3}          
++ M={m3}
+M_M6         A VIN VD2 VDDA P  
++ L={l3}  
++ W={w3}          
++ M={m3}
+M_M0         VBP VBP VDDA VDDA P  
++ L={l0}  
++ W={w0}          
++ M={m0}
+I_Ibias         VBP VSSA DC {ibias}  
+V_Vin         VIN VICM DC {-vi1/2} AC 0
++PULSE {-vi1/2} {-vi2/2} {tdi} {tr} {tr} {2*pw} {2*per}
+V_Vrefp         VREFP VICM {vref/2}
+V_Vrefn         VREFN VICM {-vref/2}
+V_Vicm         VICM VSSA {vicm}
+V_Clk1a         CLK1A VSSA DC {vdda} AC 0
++PULSE {vdda} {vssa} {td1} {tr} {tr} {pw} {per}
+V_Clk1b         CLK1B VSSA DC {vssa} AC 0
++PULSE {vssa} {vdda} {td2} {tr} {tr} {pw} {per}
+M_M16         Q QB VDDA VDDA P  
++ L={l16}  
++ W={w16}          
++ M={m16}
+M_M22         QB C VD23 VSSA N  
++ L={l18}  
++ W={w18}          
++ M={m18}
+M_M21         QB C VDDA VDDA P  
++ L={l16}  
++ W={w16}          
++ M={m16}
+M_M23         VD23 Q VSSA VSSA N  
++ L={l18}  
++ W={w18}          
++ M={m18}
+M_M20         QB Q VDDA VDDA P  
++ L={l16}  
++ W={w16}          
++ M={m16}
+.PARAM  w11=0.9u l3=0.18u w3=0.9u m9=2 vicm=400mv per=10ns vi1=-0.4v l18=0.18u
++  w16=0.36u vref=200mv l7=0.18u m7=28 w15=0.9u m18=1 vssa=0.0 w7=0.18u td2=
++ {0.5*per} ibias=200u l9=0.18u td1={(0.5*per) - 5p} m15=1 m3=2 w9=0.9u m0=2
++  tr=100ps vdda=1.6 m1=4 w18=0.36u m16=1 l11=0.18u m11=2 l13=0.18u tdi=
++ {0.75*per} pw={per/2 - tr} m13=2 l15=0.18u w0=3.6u w13=0.9u l16=0.18u
++  vi2=201.8mv l0=1.8u
+
+**** RESUMING testtran.cir ****
+.END
+
+WARNING(ORPSIM-15235): Mosfet M_M1, model P: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M1, model P: Ps = 0 is less than W
+
+WARNING(ORPSIM-15236): Parameter XW in model P is invalid - Ignored
+
+WARNING(ORPSIM-15235): Mosfet M_M2, model P: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M2, model P: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M17, model P: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M17, model P: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M14, model P: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M14, model P: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M13, model P: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M13, model P: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M11, model P: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M11, model P: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M12, model P: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M12, model P: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M3, model P: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M3, model P: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M4, model P: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M4, model P: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M5, model P: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M5, model P: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M6, model P: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M6, model P: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M0, model P: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M0, model P: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M16, model P: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M16, model P: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M21, model P: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M21, model P: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M20, model P: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M20, model P: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M10, model N: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M10, model N: Ps = 0 is less than W
+
+WARNING(ORPSIM-15236): Parameter XW in model N is invalid - Ignored
+
+WARNING(ORPSIM-15235): Mosfet M_M9, model N: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M9, model N: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M8, model N: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M8, model N: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M7, model N: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M7, model N: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M19, model N: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M19, model N: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M18, model N: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M18, model N: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M15b, model N: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M15b, model N: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M15a, model N: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M15a, model N: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M22, model N: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M22, model N: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M23, model N: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M23, model N: Ps = 0 is less than W
+
+INFO(ORPSIM-15454): Model P: Using BSIM VERSION 3.1 or lower
+
+INFO(ORPSIM-15454): Model N: Using BSIM VERSION 3.1 or lower
+
+**** 03/14/22 00:58:51 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-testtran"  [ D:\OneDrive\OneDrive - Asian Answers\Documentos\CSUS\EEE232\Projects\Project 1\comparator_latch
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               P               N               
+               PMOS            NMOS            
+  T_Measured   27              27            
+   T_Current   27              27            
+       LEVEL    7               7            
+           L  100.000000E-06  100.000000E-06 
+           W  100.000000E-06  100.000000E-06 
+         VTO    -.382344         .36943      
+          KP  505.338100E-06  505.338100E-06 
+       GAMMA    0               0            
+      LAMBDA    0               0            
+         RSH    8.1             7            
+          IS    1.000000E-15    1.000000E-15 
+          JS  100.000000E-06  100.000000E-06 
+          PB     .846161         .8          
+        PBSW     .8              .8          
+          CJ    1.214428E-03  947.109700E-06 
+        CJSW  216.564200E-12  190.590100E-12 
+          MJ     .419208         .372616     
+        MJSW     .320287         .136976     
+        CGSO  782.000000E-12  858.000000E-12 
+        CGDO  782.000000E-12  858.000000E-12 
+        CGBO    1.000000E-12    1.000000E-12 
+         TOX    4.100000E-09    4.100000E-09 
+          XJ  100.000000E-09  100.000000E-09 
+       UCRIT   10.000000E+03   10.000000E+03 
+       DELTA     .01             .01         
+      DIOMOD    2               2            
+          K1     .572205         .578912     
+          K2     .021972        1.110723E-03 
+        LETA    0               0            
+        WETA    0               0            
+          U0  109.4682        293.1688       
+       XPART     .5              .5          
+        VTH0    -.382344         .36943      
+          K3     .157675        1.000000E-03 
+          W0    1.000000E-06  100.000000E-09 
+         NLX  110.421200E-09  203.774800E-09 
+        DVT0     .623484        1.295363     
+        DVT1     .247926         .342155     
+          UA    1.316460E-09   -1.219420E-09 
+          UB    1.000000E-21    2.325738E-18 
+          UC -100.000000E-12   70.612890E-12 
+        VSAT  105.489200E+03  167.616400E+03 
+        RDSW  199.1594        105.6133       
+        VOFF    -.093565        -.094802     
+     NFACTOR    2               2.186007     
+        PCLM     .96422         1.746064     
+      PDIBL1    3.026627E-03     .325819     
+      PDIBL2  -10.000000E-06    2.701992E-03 
+       DROUT  111.701600E-06     .978723     
+      PSCBE1   79.999860E+09   44.947780E+09 
+      PSCBE2  827.189700E-12   36.720740E-09 
+          A0    1.579686        2            
+          A1     .388689        1.091680E-03 
+          A2     .401038         .330303     
+       NPEAK  415.890000E+15  235.490000E+15 
+         LDD    0               0            
+        LITL   35.071360E-09   35.071360E-09 
+         UA1    4.310000E-09    4.310000E-09 
+         UB1   -7.610000E-18   -7.610000E-18 
+         UC1  -56.000000E-12  -56.000000E-12 
+        PVAG     .019012         .012276     
+        KETA     .029861        -.013855     
+        ETA0  351.539200E-06    2.665034E-03 
+        ETAB -480.433800E-06   60.289750E-06 
+         K3B    4.276364         .029712     
+        DVT2     .1              .039559     
+        DSUB   12.150870E-06     .044222     
+      MOBMOD    1               1            
+         AGS     .311502         .476455     
+       DVT1W    0               0            
+       DVT2W    0               0            
+        PRWG     .5              .5          
+        PRWB    -.494703        -.2          
+     PDIBLCB   -1.000000E-03    -.1          
+         DWG  -19.980340E-09    2.754317E-09 
+         DWB   -2.481453E-09   -3.690793E-09 
+          B0  472.929700E-09  161.710100E-09 
+          B1    1.446715E-06    5.000000E-06 
+        LINT   29.394800E-09   17.156220E-09 
+        WINT                    2.885735E-09 
+         DLC   29.394800E-09   17.156220E-09 
+         DWC    0               2.885735E-09 
+          CF    0               0            
+        NOIA    9.900000E+18  100.000000E+18 
+        NOIB    2.400000E+03   50.000000E+03 
+        NOIC    1.400000E-12   -1.400000E-12 
+       LKETA   -3.648003E-03  532.492200E-06 
+       WKETA     .013323       -5.071892E-03 
+       PVSAT   50               2.000000E+03 
+       PKETA   -1.822724E-03   -2.090695E-03 
+       PVTH0  516.791300E-06   -5.105777E-03 
+         PUA  -43.082600E-12  -44.823200E-12 
+         PUB    1.000000E-21    5.018589E-24 
+         PU0   -1.067435       -4.020608     
+       PRDSW    9.506882       -1.101173     
+       PETA0  100.000000E-06  100.000000E-06 
+         PK2    1.095907E-03    2.247806E-03 
+         VTM     .025864         .025864     
+     VERSION    3.1             3.1          
+       PBSWG     .8              .8          
+       MJSWG     .320287         .136976     
+       CJSWG  422.000000E-12  330.000000E-12 
+
+
+WARNING(ORPSIM-15235): Mosfet M_M1, model P: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M1, model P: Ps = 0 is less than W
+
+WARNING(ORPSIM-15236): Parameter XW in model P is invalid - Ignored
+
+WARNING(ORPSIM-15235): Mosfet M_M17, model P: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M17, model P: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M14, model P: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M14, model P: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M10, model N: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M10, model N: Ps = 0 is less than W
+
+WARNING(ORPSIM-15236): Parameter XW in model N is invalid - Ignored
+
+WARNING(ORPSIM-15235): Mosfet M_M8, model N: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M8, model N: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M19, model N: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M19, model N: Ps = 0 is less than W
+
+WARNING(ORPSIM-16534): Using high values of ITL4 for Speed Level > 0 may increase total simulation job time.
+
+**** 03/14/22 00:58:51 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-testtran"  [ D:\OneDrive\OneDrive - Asian Answers\Documentos\CSUS\EEE232\Projects\Project 1\comparator_latch
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    A)     .4400  (    B)     .5374  (    C)    1.6000  (    D)    1.6000      
+
+(    Q)     .6423  (   QB)     .6423  (  VBP)    -.3095  (  VD1)    1.3289      
+
+(  VD2)    1.3732  (  VIN)     .6000  (  VIP)     .2000  ( VD19)     .5756      
+
+( VD23)     .5756  ( VDDA)    1.6000  ( VICM)     .4000  ( VSSA)    0.0000      
+
+(CLK1A)    1.6000  (CLK1B)    0.0000  (VREFN)     .3000  (VREFP)     .5000  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vdda      -5.313E-04
+    V_Vssa       5.313E-04
+    V_Vip        0.000E+00
+    V_Vin        0.000E+00
+    V_Vrefp      0.000E+00
+    V_Vrefn      0.000E+00
+    V_Vicm       0.000E+00
+    V_Clk1a      0.000E+00
+    V_Clk1b      0.000E+00
+
+    TOTAL POWER DISSIPATION   8.50E-04  WATTS
+
+
+**** 03/14/22 00:58:51 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-testtran"  [ D:\OneDrive\OneDrive - Asian Answers\Documentos\CSUS\EEE232\Projects\Project 1\comparator_latch
+
+
+ ****     OPERATING POINT INFORMATION      TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+
+
+
+**** MOSFETS
+
+
+NAME         M_M1        M_M2        M_M10       M_M9        M_M8      
+MODEL        P           P           N           N           N         
+ID          -1.57E-04   -1.34E-04    3.22E-12    3.22E-12    8.00E-05 
+VGS         -1.91E+00   -1.91E+00   -5.37E-01   -4.40E-01    4.40E-01 
+VDS         -2.71E-01   -2.27E-01    1.06E+00    1.16E+00    5.37E-01 
+VBS          0.00E+00    0.00E+00   -5.37E-01   -4.40E-01    0.00E+00 
+VTH         -3.99E-01   -3.99E-01    5.94E-01    5.70E-01    2.95E-01 
+VDSAT       -1.18E+00   -1.18E+00    3.94E-02    3.91E-02    1.23E-01 
+Lin0/Sat1   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+if          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+ir          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+TAU         -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+GM           9.09E-05    7.54E-05    1.98E-18    8.48E-17    1.05E-03 
+GDS          5.05E-04    5.30E-04    4.79E-20    1.99E-18    4.25E-05 
+GMB          5.01E-05    4.24E-05    6.15E-19    2.66E-17    2.77E-04 
+CBD          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CBS          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGSOV        1.13E-14    1.13E-14    1.54E-15    1.54E-15    4.32E-15 
+CGDOV        1.13E-14    1.13E-14    1.54E-15    1.54E-15    4.32E-15 
+CGBOV        1.80E-18    1.80E-18    1.80E-19    1.80E-19    1.80E-19 
+ Derivatives of gate (dQg/dVxy) and bulk (dQb/dVxy) charges
+DQGDVGB      2.32E-13    2.33E-13    3.72E-15    3.72E-15    1.35E-14 
+DQGDVDB     -9.89E-14   -1.02E-13   -1.53E-15   -1.53E-15   -4.10E-15 
+DQGDVSB     -1.37E-13   -1.34E-13   -1.53E-15   -1.53E-15   -9.29E-15 
+DQDDVGB     -1.15E-13   -1.16E-13   -1.53E-15   -1.53E-15   -6.15E-15 
+DQDDVDB      8.74E-14    9.01E-14    1.53E-15    1.53E-15    4.16E-15 
+DQDDVSB      5.80E-14    5.65E-14    5.45E-30    2.34E-28    2.68E-15 
+DQBDVGB     -1.86E-15   -1.41E-15   -6.50E-16   -6.50E-16   -1.19E-15 
+DQBDVDB     -6.47E-14   -6.69E-14   -5.25E-18   -5.26E-18   -2.06E-17 
+DQBDVSB      9.32E-15    1.00E-14   -9.70E-19   -2.60E-18   -2.59E-16 
+
+NAME         M_M7        M_M17       M_M19       M_M18       M_M14     
+MODEL        N           P           N           N           P         
+ID           2.12E-04   -3.19E-12    1.97E-05    1.97E-05   -3.22E-12 
+VGS          5.37E-01   -4.09E-09    6.42E-01    1.02E+00   -1.60E+00 
+VDS          4.40E-01   -9.58E-01    5.76E-01    6.67E-02   -4.09E-09 
+VBS          0.00E+00    0.00E+00    0.00E+00   -5.76E-01    0.00E+00 
+VTH          2.96E-01   -4.66E-01    3.99E-01    5.66E-01   -4.81E-01 
+VDSAT        1.71E-01   -3.87E-02    1.53E-01    2.06E-01   -7.34E-01 
+Lin0/Sat1   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+if          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+ir          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+TAU         -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+GM           1.77E-03    5.73E-11    1.42E-04    4.50E-05    1.85E-12 
+GDS          1.11E-04    9.34E-13    6.82E-06    2.62E-04    7.88E-04 
+GMB          4.05E-04    2.19E-11    3.49E-05    8.89E-06    7.91E-13 
+CBD          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CBS          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGSOV        4.32E-15    2.82E-16    3.09E-16    3.09E-16    1.41E-15 
+CGDOV        4.32E-15    2.82E-16    3.09E-16    3.09E-16    1.41E-15 
+CGBOV        1.80E-19    1.80E-19    1.80E-19    1.80E-19    1.80E-19 
+ Derivatives of gate (dQg/dVxy) and bulk (dQb/dVxy) charges
+DQGDVGB      1.35E-14    6.70E-16    9.83E-16    1.04E-15    4.66E-15 
+DQGDVDB     -4.11E-15   -2.81E-16   -3.00E-16   -4.63E-16   -2.28E-15 
+DQGDVSB     -9.40E-15   -2.84E-16   -6.63E-16   -5.80E-16   -2.39E-15 
+DQDDVGB     -6.19E-15   -2.82E-16   -4.49E-16   -5.16E-16   -2.33E-15 
+DQDDVDB      4.16E-15    2.82E-16    3.02E-16    4.75E-16    2.47E-15 
+DQDDVSB      2.73E-15    1.06E-21    1.91E-16    9.41E-17    1.42E-16 
+DQBDVGB     -1.17E-15   -1.07E-16   -8.51E-17   -7.16E-18   -4.26E-18 
+DQBDVDB     -2.68E-17   -8.07E-19   -1.18E-18   -1.82E-16   -1.25E-15 
+DQBDVSB     -2.44E-16    2.58E-18   -2.25E-17    8.82E-17    6.94E-16 
+
+NAME         M_M13       M_M11       M_M12       M_M15b      M_M15a    
+MODEL        P           P           P           N           N         
+ID          -3.22E-12   -9.48E-19   -9.48E-19   -7.51E-05    7.51E-05 
+VGS         -1.60E+00   -4.09E-09   -4.09E-09    1.06E+00    1.16E+00 
+VDS         -4.09E-09   -4.09E-09   -4.09E-09   -9.75E-02    9.75E-02 
+VBS          0.00E+00    0.00E+00    0.00E+00   -5.37E-01   -4.40E-01 
+VTH         -4.81E-01   -4.81E-01   -4.81E-01    5.79E-01    5.79E-01 
+VDSAT       -7.34E-01   -3.92E-02   -3.92E-02    2.29E-01    2.29E-01 
+Lin0/Sat1   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+if          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+ir          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+TAU         -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+GM           1.85E-12    2.41E-17    2.41E-17    1.17E-04    1.17E-04 
+GDS          7.88E-04    2.29E-10    2.29E-10    6.60E-04    6.60E-04 
+GMB          7.91E-13    9.18E-18    9.18E-18    2.77E-05    2.77E-05 
+CBD          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CBS          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGSOV        1.41E-15    1.41E-15    1.41E-15    7.72E-16    7.72E-16 
+CGDOV        1.41E-15    1.41E-15    1.41E-15    7.72E-16    7.72E-16 
+CGBOV        1.80E-19    1.80E-19    1.80E-19    1.80E-19    1.80E-19 
+ Derivatives of gate (dQg/dVxy) and bulk (dQb/dVxy) charges
+DQGDVGB      4.66E-15    3.35E-15    3.35E-15    2.62E-15    2.62E-15 
+DQGDVDB     -2.28E-15   -1.41E-15   -1.41E-15   -1.44E-15   -1.16E-15 
+DQGDVSB     -2.39E-15   -1.41E-15   -1.41E-15   -1.16E-15   -1.44E-15 
+DQDDVGB     -2.33E-15   -1.41E-15   -1.41E-15   -1.30E-15   -1.30E-15 
+DQDDVDB      2.47E-15    1.41E-15    1.41E-15    9.86E-16    1.20E-15 
+DQDDVSB      1.42E-16    1.66E-21    1.66E-21    4.35E-16    2.19E-16 
+DQBDVGB     -4.26E-18   -5.39E-16   -5.39E-16   -2.23E-17   -2.23E-17 
+DQBDVDB     -1.25E-15   -1.95E-18   -1.95E-18    2.33E-16   -4.76E-16 
+DQBDVSB      6.94E-16    5.53E-18    5.53E-18   -4.76E-16    2.33E-16 
+
+NAME         M_M3        M_M4        M_M5        M_M6        M_M0      
+MODEL        P           P           P           P           P         
+ID          -1.22E-04   -3.54E-05   -1.08E-04   -2.62E-05   -2.00E-04 
+VGS         -1.13E+00   -8.29E-01   -1.07E+00   -7.73E-01   -1.91E+00 
+VDS         -7.91E-01   -8.89E-01   -8.36E-01   -9.33E-01   -1.91E+00 
+VBS          2.71E-01    2.71E-01    2.27E-01    2.27E-01    0.00E+00 
+VTH         -5.57E-01   -5.57E-01   -5.45E-01   -5.44E-01   -3.97E-01 
+VDSAT       -4.12E-01   -2.23E-01   -3.84E-01   -1.93E-01   -1.18E+00 
+Lin0/Sat1   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+if          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+ir          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+TAU         -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+GM           3.41E-04    2.30E-04    3.32E-04    2.05E-04    2.37E-04 
+GDS          2.18E-05    4.78E-06    1.68E-05    3.52E-06    2.58E-06 
+GMB          9.66E-05    6.35E-05    9.48E-05    5.69E-05    8.65E-05 
+CBD          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CBS          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGSOV        1.41E-15    1.41E-15    1.41E-15    1.41E-15    5.63E-15 
+CGDOV        1.41E-15    1.41E-15    1.41E-15    1.41E-15    5.63E-15 
+CGBOV        1.80E-19    1.80E-19    1.80E-19    1.80E-19    1.80E-18 
+ Derivatives of gate (dQg/dVxy) and bulk (dQb/dVxy) charges
+DQGDVGB      4.40E-15    4.40E-15    4.40E-15    4.40E-15    9.68E-14 
+DQGDVDB     -1.40E-15   -1.40E-15   -1.40E-15   -1.40E-15   -5.57E-15 
+DQGDVSB     -2.96E-15   -2.95E-15   -2.95E-15   -2.94E-15   -9.11E-14 
+DQDDVGB     -2.02E-15   -2.02E-15   -2.02E-15   -2.02E-15   -4.09E-14 
+DQDDVDB      1.41E-15    1.41E-15    1.41E-15    1.41E-15    5.62E-15 
+DQDDVSB      7.86E-16    7.85E-16    7.88E-16    7.86E-16    4.65E-14 
+DQBDVGB     -3.54E-16   -3.57E-16   -3.56E-16   -3.59E-16   -1.51E-14 
+DQBDVDB     -3.01E-18   -1.73E-18   -2.50E-18   -1.62E-18   -4.39E-17 
+DQBDVSB     -2.26E-17   -3.07E-17   -2.95E-17   -3.78E-17   -7.51E-15 
+
+NAME         M_M16       M_M22       M_M21       M_M23       M_M20     
+MODEL        P           N           P           N           P         
+ID          -1.97E-05    1.97E-05   -3.19E-12    1.97E-05   -1.97E-05 
+VGS         -9.58E-01    1.02E+00   -4.09E-09    6.42E-01   -9.58E-01 
+VDS         -9.58E-01    6.67E-02   -9.58E-01    5.76E-01   -9.58E-01 
+VBS          0.00E+00   -5.76E-01    0.00E+00    0.00E+00    0.00E+00 
+VTH         -4.66E-01    5.66E-01   -4.66E-01    3.99E-01   -4.66E-01 
+VDSAT       -3.49E-01    2.06E-01   -3.87E-02    1.53E-01   -3.49E-01 
+Lin0/Sat1   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+if          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+ir          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+TAU         -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+GM           6.79E-05    4.50E-05    5.73E-11    1.42E-04    6.79E-05 
+GDS          2.60E-06    2.62E-04    9.34E-13    6.82E-06    2.60E-06 
+GMB          2.01E-05    8.89E-06    2.19E-11    3.49E-05    2.01E-05 
+CBD          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CBS          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGSOV        2.82E-16    3.09E-16    2.82E-16    3.09E-16    2.82E-16 
+CGDOV        2.82E-16    3.09E-16    2.82E-16    3.09E-16    2.82E-16 
+CGBOV        1.80E-19    1.80E-19    1.80E-19    1.80E-19    1.80E-19 
+ Derivatives of gate (dQg/dVxy) and bulk (dQb/dVxy) charges
+DQGDVGB      8.82E-16    1.04E-15    6.70E-16    9.83E-16    8.82E-16 
+DQGDVDB     -2.79E-16   -4.63E-16   -2.81E-16   -3.00E-16   -2.79E-16 
+DQGDVSB     -5.96E-16   -5.80E-16   -2.84E-16   -6.63E-16   -5.96E-16 
+DQDDVGB     -4.04E-16   -5.16E-16   -2.82E-16   -4.49E-16   -4.04E-16 
+DQDDVDB      2.81E-16    4.75E-16    2.82E-16    3.02E-16    2.81E-16 
+DQDDVSB      1.63E-16    9.41E-17    1.06E-21    1.91E-16    1.63E-16 
+DQBDVGB     -7.40E-17   -7.16E-18   -1.07E-16   -8.51E-17   -7.40E-17 
+DQBDVDB     -6.77E-19   -1.82E-16   -8.07E-19   -1.18E-18   -6.77E-19 
+DQBDVSB     -1.09E-17    8.82E-17    2.58E-18   -2.25E-17   -1.09E-17 
+
+          JOB CONCLUDED
+
+**** 03/14/22 00:58:51 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-testtran"  [ D:\OneDrive\OneDrive - Asian Answers\Documentos\CSUS\EEE232\Projects\Project 1\comparator_latch
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  License check-out time            =        2.52
+  Total job time (using Solver 1)   =         .31
+

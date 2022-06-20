@@ -1,0 +1,175 @@
+
+**** 11/28/11 16:55:47 ******* PSpice 16.3.0 (June 2009) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-testac"  [ \\gaia.ecs.csus.edu\pheedley\PSpice\examples\eee230\OPAMPs\opamp_folded_cascodeN_wideswing_DM\opa
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "testac.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../opamp_folded_cascoden_wideswing-pspicefiles/opamp_folded_cascoden_wideswing.lib" 
+* From [PSPICE NETLIST] section of T:\Cadence\SPB_16.3\tools\PSpice\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.AC DEC 10 1k 1g
+.OP
+.OPTIONS NUMDGT= 5
+.OPTIONS RELTOL= 0.0001
+.PROBE V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source OPAMP_FOLDED_CASCODEN_WIDESWING
+M_M1         VD1 VIP VTAIL VSSA N  
++ L={l1}  
++ W={w1}          
++ M={m1}
+M_M2         VD2 VIN VTAIL VSSA N  
++ L={l1}  
++ W={w1}          
++ M={m1}
+M_M11         VTAIL VCMC VSSA VSSA N  
++ L={l0}  
++ W={w0}          
++ M={m11}
+M_M5         VD1 VBP VDDA VDDA P  
++ L={l5}  
++ W={w5}          
++ M={m5}
+V_Vdda         VDDA 0 {vdda}
+V_Vssa         VSSA 0 {vssa}
+C_CLp         VSSA VOP  {cl}  TC=0,0 
+M_M3         VON VBPC VD1 VDDA P  
++ L={l3}  
++ W={w3}          
++ M={m3}
+M_M6         VD2 VBP VDDA VDDA P  
++ L={l5}  
++ W={w5}          
++ M={m5}
+M_M4         VOP VBPC VD2 VDDA P  
++ L={l3}  
++ W={w3}          
++ M={m3}
+M_M8         VOP VBNC VD10 VSSA N  
++ L={l7}  
++ W={w7}          
++ M={m7}
+M_M7         VON VBNC VD9 VSSA N  
++ L={l7}  
++ W={w7}          
++ M={m7}
+M_M10         VD10 VBN VSSA VSSA N  
++ L={l9}  
++ W={w9}          
++ M={m9}
+M_M9         VD9 VBN VSSA VSSA N  
++ L={l9}  
++ W={w9}          
++ M={m9}
+M_M12         VBPC VG0 VSSA VSSA N  
++ L={l0}  
++ W={w0}          
++ M={m0}
+I_Ibias1         VDDA VG0 DC {ibias}  
+M_M0         VG0 VG0 VSSA VSSA N  
++ L={l0}  
++ W={w0}          
++ M={m0}
+M_M3r         VD3R VBPC VDDA VDDA P  
++ L={l3r}  
++ W={w3r}          
++ M={m3r}
+M_M3b         VBPC VBPC VD3R VDDA P  
++ L={l3}  
++ W={w3}          
++ M={m3b}
+M_M13         VBP VG0 VSSA VSSA N  
++ L={l0}  
++ W={w0}          
++ M={m0}
+M_M5b         VD5B VBP VDDA VDDA P  
++ L={l5}  
++ W={w5}          
++ M={m5b}
+M_M5bc         VBP VBPC VD5B VDDA P  
++ L={l3}  
++ W={w3}          
++ M={m3b}
+M_M14         VD14 VBP VDDA VDDA P  
++ L={l5}  
++ W={w5}          
++ M={m5b}
+M_M14c         VBNC VBPC VD14 VDDA P  
++ L={l3}  
++ W={w3}          
++ M={m3b}
+M_M15c         VBN VBPC VD15 VDDA P  
++ L={l3}  
++ W={w3}          
++ M={m3b}
+M_M15         VD15 VBP VDDA VDDA P  
++ L={l5}  
++ W={w5}          
++ M={m5b}
+M_M7r         VD7R VBNC VSSA VSSA N  
++ L={l7r}  
++ W={w7r}          
++ M={m7r}
+M_M7b         VBNC VBNC VD7R VSSA N  
++ L={l7}  
++ W={w7}          
++ M={m7b}
+M_M9b         VD9B VBN VSSA VSSA N  
++ L={l9}  
++ W={w9}          
++ M={m9b}
+M_M9bc         VBN VBNC VD9B VSSA N  
++ L={l7}  
++ W={w7}          
++ M={m7b}
+V_Vidm         VIDM VSSA DC 0 AC 1
++PULSE {vs1} {vs2} {td} {tr} {tr} {pw} {per}
+C_CLn         VSSA VON  {cl}  TC=0,0 
+E_Edmp         VODM VDMX VOP VSSA 1
+E_Edmn         VDMX VSSA VON VSSA -1
+E_Ecmn         VCMX VSSA VON VSSA 0.5
+E_Ecmp         VOCM VCMX VOP VSSA 0.5
+V_Vicm         VICM VSSA {vicm}
+L_Lbig1         VODM VODMAC  1e12  
+C_Cbig1         VSSA VODMAC  1e12  TC=0,0 
+L_Lbig2         VOCM VOCMAC  1e12  
+C_Cbig2         VSSA VOCMAC  1e12  TC=0,0 
+V_Vocmref         VOCMREF VSSA DC {vocmref} AC 0
++PULSE {vs1} {vs2} {td+1} {tr} {tr} {pw} {per}
+E_Eip         VIP VIPX VIDM VSSA 0.5
+E_Efbkp         VIPX VICM VODMAC VSSA {-0.5*adm}
+E_Efbkn         VINX VICM VODMAC VSSA {0.5*adm}
+E_Ein         VIN VINX VIDM VSSA -0.5
+E_Evg0         VCMBIAS VSSA VG0 VSSA 1
+E_Ecmfbk         VCMC VCMBIAS VOCMAC VOCMREF acm
+---------------------------------------------$
+ERROR -- Invalid number
+.PARAM  w3=8.0u l9=0.5u td={per/2} vs1={-1*vstep/2} m5b=2 l3r=0.5u vs2={
++  1*vstep/2} w5=8.0u m3r=1 m3b=2 adm=1 w7=4.0u acm=0.01 per=100ns w9=4.0u m0=2
++  pw={per/2 - tr} m11=4 w7r=2.4u m1=2 l0=2.0u vocmref=2.5 l1=0.5u cl=2pf m3=2
++  vstep=100m ibias=50u l3=0.5u w3r=4.6u m5=4 vssa=0.0 vdda=5.0 l5=0.5u vicm=2.5
++  m9b=2 w0=4.0u m7=2 l7r=0.5u tr={0.01*per} w1=4.0u l7=0.5u m7r=1 m9=2 m7b=2
+
+**** RESUMING testac.cir ****
+.END
+
